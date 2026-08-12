@@ -47,14 +47,18 @@
 
   *{ box-sizing: border-box; margin:0; padding:0; }
   html{ scroll-behavior: smooth; }
+
   body{
-    background: var(--bg);
+    background-color: var(--bg);
+    background-image: radial-gradient(var(--line) 1px, transparent 1px);
+    background-size: 20px 20px;
     color: var(--ink);
     font-family: var(--font-body);
     line-height: 1.6;
     -webkit-font-smoothing: antialiased;
-    transition: background 0.2s ease, color 0.2s ease;
+    transition: background-color 0.2s ease, color 0.2s ease;
   }
+
   a{ color: inherit; }
   img{ max-width: 100%; display: block; }
 
@@ -657,7 +661,7 @@
 
         cachedPosts = posts.sort((a, b) => new Date(b.date) - new Date(a.date));
         listEl.innerHTML = "";
-        
+
         cachedPosts.forEach((post, index) => {
           const row = document.createElement("button");
           row.className = "post-row";
