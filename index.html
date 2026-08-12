@@ -47,18 +47,35 @@
 
   *{ box-sizing: border-box; margin:0; padding:0; }
   html{ scroll-behavior: smooth; }
-
+  
   body{
     background-color: var(--bg);
-    background-image: radial-gradient(var(--line) 1px, transparent 1px);
-    background-size: 20px 20px;
+    
+    /* 
+      Creates a repeating "+" pattern using CSS gradients. 
+      It draws a continuous grid and then visually "cuts" the lines 
+      into crosses by covering the spaces between them with the background color. 
+    */
+    background-image: 
+      /* 1-4. The blockers that hide the connecting lines */
+      linear-gradient(var(--bg) 8px, transparent 8px),
+      linear-gradient(to top, var(--bg) 8px, transparent 8px),
+      linear-gradient(to right, var(--bg) 8px, transparent 8px),
+      linear-gradient(to left, var(--bg) 8px, transparent 8px),
+      /* 5-6. The continuous grid lines */
+      linear-gradient(var(--line) 2px, transparent 2px),
+      linear-gradient(90deg, var(--line) 2px, transparent 2px);
+    
+    background-size: 24px 24px;
+    background-position: 0 0, 0 0, 0 0, 0 0, 11px 11px, 11px 11px;
+    
     color: var(--ink);
     font-family: var(--font-body);
     line-height: 1.6;
     -webkit-font-smoothing: antialiased;
     transition: background-color 0.2s ease, color 0.2s ease;
   }
-
+  
   a{ color: inherit; }
   img{ max-width: 100%; display: block; }
 
@@ -661,7 +678,7 @@
 
         cachedPosts = posts.sort((a, b) => new Date(b.date) - new Date(a.date));
         listEl.innerHTML = "";
-
+        
         cachedPosts.forEach((post, index) => {
           const row = document.createElement("button");
           row.className = "post-row";
