@@ -6,42 +6,19 @@
 <meta name="description" content="Siddhant Sharma — competitive programmer and open source enthusiast. Projects, writing, and contact info.">
 <title>Siddhant Sharma</title>
 
-<!--
-  =============================================================
-  PORTFOLIO SITE — single scrolling page, no build step required.
-  Just open this file in a browser, or host it anywhere
-  (GitHub Pages, Netlify, Vercel, etc).
-
-  WHAT TO EDIT:
-  1. The CONFIG object near the top of the <script> at the
-     bottom of this file — GitHub username, repo names,
-     LinkedIn URL, email.
-  2. The "ABOUT — EDIT ME" and "CONTACT — EDIT ME" sections in
-     the HTML body below.
-  3. Projects + Blog update themselves from GitHub automatically.
-  =============================================================
--->
-
-<!-- Google Fonts: Sora for headings, Inter for body text, JetBrains Mono for dates/meta/tags -->
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Sora:wght@500;600;700&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
 
 <style>
-  /* ============================================================
-     DESIGN TOKENS — LIGHT MODE (default)
-     Dark mode overrides live in the [data-theme="dark"] block
-     further down. Everything else in the CSS just references
-     these variables, so the whole site re-themes automatically.
-     ============================================================ */
   :root{
-    --bg:         #FAFAF8;   /* page background — warm paper white */
-    --bg-raised:  #F1F1EC;   /* cards / raised surfaces */
+    --bg:         #FAFAF8;
+    --bg-raised:  #F1F1EC;
     --header-bg:  rgba(250,250,248,0.85);
-    --ink:        #16181D;   /* primary text (black-ish in light mode) */
-    --muted:      #6B7280;   /* secondary text */
-    --line:       #E4E4DF;   /* hairline borders/dividers */
-    --accent:     #EAB308;   /* single accent color — yellow */
-    --accent-ink: #16181D;   /* text on top of accent */
+    --ink:        #16181D;
+    --muted:      #6B7280;
+    --line:       #E4E4DF;
+    --accent:     #EAB308;
+    --accent-ink: #16181D;
     --error:      #B3402A;
 
     --font-display: 'Sora', sans-serif;
@@ -55,24 +32,19 @@
     color-scheme: light;
   }
 
-  /* ---------------- DARK MODE ----------------
-     Toggled by adding data-theme="dark" to <html> (see script).
-     Colors are re-picked, not just inverted, so contrast and
-     the accent still feel intentional at night. */
   html[data-theme="dark"]{
     --bg:         #14161A;
     --bg-raised:  #1D2024;
     --header-bg:  rgba(20,22,26,0.85);
-    --ink:        #F2F1EC;   /* primary text (white-ish in dark mode) */
+    --ink:        #F2F1EC;
     --muted:      #9AA0A6;
     --line:       #2B2E33;
-    --accent:     #FDE047;   /* brighter yellow for contrast on dark bg */
+    --accent:     #FDE047;
     --accent-ink: #14161A;
     --error:      #E07A5F;
     color-scheme: dark;
   }
 
-  /* Basic reset */
   *{ box-sizing: border-box; margin:0; padding:0; }
   html{ scroll-behavior: smooth; }
   body{
@@ -86,23 +58,19 @@
   a{ color: inherit; }
   img{ max-width: 100%; display: block; }
 
-  /* Respect users who've asked for reduced motion */
   @media (prefers-reduced-motion: reduce){
     html{ scroll-behavior: auto; }
     *{ animation: none !important; transition: none !important; }
   }
 
-  /* Visible keyboard focus everywhere (accessibility) */
   a:focus-visible, button:focus-visible{
     outline: 2px solid var(--accent);
     outline-offset: 3px;
     border-radius: 4px;
   }
 
-  /* Every section scrolls to sit just below the sticky header */
   section{ scroll-margin-top: var(--header-h); }
 
-  /* ---------------- Header / nav ---------------- */
   .site-header{
     position: sticky;
     top: 0;
@@ -151,7 +119,6 @@
   .nav-links a:hover{ color: var(--ink); background: var(--bg-raised); }
   .nav-links a.active{ color: var(--accent); font-weight: 500; }
 
-  /* Theme toggle button, top right */
   .theme-toggle{
     width: 36px;
     height: 36px;
@@ -168,13 +135,11 @@
   }
   .theme-toggle:hover{ border-color: var(--accent); }
   .theme-toggle svg{ width: 17px; height: 17px; stroke: var(--ink); }
-  /* Show the sun icon in dark mode (click to go light), moon icon in light mode */
   .theme-toggle .icon-sun{ display: none; }
   .theme-toggle .icon-moon{ display: block; }
   html[data-theme="dark"] .theme-toggle .icon-sun{ display: block; }
   html[data-theme="dark"] .theme-toggle .icon-moon{ display: none; }
 
-  /* ---------------- Main / sections ---------------- */
   main{
     max-width: var(--max-width);
     margin: 0 auto;
@@ -186,7 +151,6 @@
   }
   section:last-of-type{ border-bottom: none; }
 
-  /* Fade-in-on-scroll (subtle, disabled entirely under reduced-motion above) */
   section{ opacity: 0; transform: translateY(12px); transition: opacity 0.5s ease, transform 0.5s ease; }
   section.in-view{ opacity: 1; transform: none; }
 
@@ -207,14 +171,12 @@
     letter-spacing: -0.02em;
   }
 
-  /* Reverted to just the yellow text color */
   h1 .accent-word{
     color: var(--accent);
   }
 
   .section-title{ font-size: 1.8rem; margin-bottom: 8px; }
 
-  /* ---------------- About ---------------- */
   .about-lede{
     font-size: 1.05rem;
     color: var(--muted);
@@ -257,7 +219,6 @@
     letter-spacing: -0.01em;
   }
 
-  /* ---------------- Projects ---------------- */
   .section-intro{
     color: var(--muted);
     max-width: 60ch;
@@ -315,7 +276,6 @@
     padding-bottom: 2px;
   }
 
-  /* ---------------- Blog ---------------- */
   .post-list{ display: flex; flex-direction: column; }
   .post-row{
     display: flex;
@@ -386,7 +346,6 @@
     margin-bottom: 16px;
   }
 
-  /* Generic status text used for loading / empty / error states */
   .status-text{
     font-family: var(--font-mono);
     font-size: 0.85rem;
@@ -395,7 +354,6 @@
   }
   .status-text.error{ color: var(--error); }
 
-  /* ---------------- Contact ---------------- */
   .contact-grid{
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
@@ -427,7 +385,6 @@
     font-weight: 600;
   }
 
-  /* ---------------- Footer ---------------- */
   footer{
     padding: 28px 24px 40px;
   }
@@ -452,7 +409,6 @@
   }
   .back-to-top:hover{ color: var(--accent); }
 
-  /* ---------------- Responsive ---------------- */
   @media (max-width: 640px){
     .nav-links{ gap: 0; }
     .nav-links a{ padding: 8px 8px; font-size: 0.78rem; }
@@ -465,11 +421,6 @@
 </head>
 <body>
 
-  <!-- ================= HEADER / NAV =================
-       All links are anchors (#about, #projects, etc) that
-       scroll smoothly to the matching section on this same
-       page — nothing to switch or load separately.
-  ===================================================== -->
   <header class="site-header">
     <div class="nav-inner">
       <a href="#about" class="brand">Siddhant Sharma<span style="color:var(--accent)">.</span></a>
@@ -480,11 +431,8 @@
           <li><a href="#blog" class="nav-link" data-section="blog">blog</a></li>
           <li><a href="#contact" class="nav-link" data-section="contact">contact</a></li>
         </ul>
-        <!-- Dark / light mode toggle -->
         <button id="theme-toggle" class="theme-toggle" aria-label="Toggle dark mode" aria-pressed="false">
-          <!-- Moon = shown in light mode (click to go dark) -->
           <svg class="icon-moon" viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
-          <!-- Sun = shown in dark mode (click to go light) -->
           <svg class="icon-sun" viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M6.34 17.66l-1.41 1.41M19.07 4.93l-1.41 1.41"/></svg>
         </button>
       </div>
@@ -493,10 +441,6 @@
 
   <main>
 
-    <!-- ================= ABOUT — EDIT ME =================
-         Plain HTML you edit directly. Nothing here pulls from
-         GitHub — it's just your bio.
-    ===================================================== -->
     <section id="about">
       <span class="eyebrow">about</span>
       <h1>Hi, I'm <span class="accent-word">Siddhant</span> —<br>I love learning stuff.</h1>
@@ -517,16 +461,9 @@
       <div class="tag-row">
         <span class="tag">C++</span>
         <span class="tag">C</span>
-        <!-- Add/remove tags as needed -->
       </div>
     </section>
 
-    <!-- ================= PROJECTS =================
-         Pulled live from the GitHub REST API using the
-         username set in CONFIG below. Editing a repo's
-         description/topics on GitHub updates this section
-         automatically — no code changes needed.
-    ============================================== -->
     <section id="projects">
       <span class="eyebrow">projects</span>
       <h1 class="section-title">Things I've built and contributed to</h1>
@@ -537,12 +474,6 @@
       <a id="github-profile-link" class="view-all-link" href="https://github.com/Siddhant21007?tab=repositories" target="_blank" rel="noopener">View all repositories on GitHub →</a>
     </section>
 
-    <!-- ================= BLOG =================
-         Post list + full post reader, both pulled live from
-         markdown files stored in a GitHub repo (see CONFIG).
-         Push a new .md file to that repo/folder and it shows
-         up here automatically.
-    ========================================= -->
     <section id="blog">
       <span class="eyebrow">blog</span>
       <h1 class="section-title">Writing</h1>
@@ -551,24 +482,18 @@
         here as soon as they're pushed.
       </p>
 
-      <!-- List view -->
       <div id="post-list-container">
         <div id="post-list" class="post-list">
           <p class="status-text">Loading posts…</p>
         </div>
       </div>
 
-      <!-- Single-post reader view (hidden until a post is opened) -->
       <div id="post-reader" class="post-reader">
         <button class="back-link" id="back-to-list">← back to all posts</button>
         <article id="post-content"></article>
       </div>
     </section>
 
-    <!-- ================= CONTACT — EDIT ME =================
-         Swap in your real email below. GitHub and LinkedIn
-         are pulled from CONFIG automatically.
-    ======================================================== -->
     <section id="contact">
       <span class="eyebrow">contact</span>
       <h1 class="section-title">Let's talk</h1>
@@ -593,7 +518,6 @@
 
   </main>
 
-  <!-- ================= FOOTER ================= -->
   <footer>
     <div class="footer-inner">
       <span>© <span id="footer-year"></span> Siddhant Sharma</span>
@@ -601,57 +525,20 @@
     </div>
   </footer>
 
-  <!-- Markdown parser, used to turn blog post .md files into HTML.
-       Loaded from cdnjs — no install/build step needed. -->
   <script src="https://cdnjs.cloudflare.com/ajax/libs/marked/9.1.2/marked.min.js"></script>
 
   <script>
-    /* =========================================================
-       CONFIG — EDIT THESE VALUES FOR YOUR OWN SITE
-       This is the only part of the script most people need to
-       touch. Everything below it just uses these values.
-       ========================================================= */
     const CONFIG = {
-      // Your GitHub username. Used for the Projects section.
       githubUsername: "Siddhant21007",
-
-      // Your LinkedIn profile URL.
       linkedinUrl: "https://www.linkedin.com/in/siddhant-sharma-52629a292/",
-
-      // Your email, shown in the Contact section.
       email: "sharma.siddhant.2107@gmail.com",
-
-      // --- Blog settings ---
-      // The repo where your blog post markdown files live.
-      // It can be this same portfolio repo, or a separate one.
-      // --- Blog settings ---
-      blogRepoOwner: "Siddhant21007", // Your GitHub username
-      blogRepoName: "my-portfolio",   // The exact name of your repository on GitHub
-      blogPostsPath: "posts",         // The folder inside that repo where you will put your posts
-      blogBranch: "main",             // Usually "main" (or "master")
-
-      // Max number of projects to show (most recently updated first).
+      blogRepoOwner: "Siddhant21007",
+      blogRepoName: "my-portfolio",
+      blogPostsPath: "posts",
+      blogBranch: "main",
       maxProjectsShown: 6,
     };
 
-    /* =========================================================
-       Each blog post markdown file should start with a small
-       "frontmatter" block like this, followed by the content:
-
-       ---
-       title: My First Post
-       date: 2026-01-15
-       excerpt: A one-line summary shown in the post list.
-       ---
-
-       Your post content in normal markdown goes here.
-       ========================================================= */
-
-    // ---------------------------------------------------------
-    // THEME: light / dark mode toggle, top right of the header.
-    // Preference is saved so it persists across visits, and
-    // falls back to the visitor's OS-level preference first time.
-    // ---------------------------------------------------------
     const htmlEl = document.documentElement;
     const themeToggleBtn = document.getElementById("theme-toggle");
 
@@ -672,10 +559,6 @@
       applyTheme(next);
     });
 
-    // ---------------------------------------------------------
-    // ACTIVE NAV LINK: highlights whichever section is currently
-    // in view as the visitor scrolls, using IntersectionObserver.
-    // ---------------------------------------------------------
     const sections = document.querySelectorAll("main section");
     const navLinks = document.querySelectorAll(".nav-link");
 
@@ -689,15 +572,10 @@
           }
         });
       },
-      { rootMargin: "-45% 0px -50% 0px" } // triggers when a section crosses the mid-viewport
+      { rootMargin: "-45% 0px -50% 0px" }
     );
     sections.forEach(section => sectionObserver.observe(section));
 
-    // ---------------------------------------------------------
-    // SCROLL-REVEAL: subtle fade/slide-in as each section enters
-    // the viewport. Skipped automatically for visitors who've
-    // requested reduced motion (see the CSS media query above).
-    // ---------------------------------------------------------
     const revealObserver = new IntersectionObserver(
       entries => {
         entries.forEach(entry => {
@@ -711,9 +589,6 @@
     );
     sections.forEach(section => revealObserver.observe(section));
 
-    // ---------------------------------------------------------
-    // FOOTER + CONTACT LINKS
-    // ---------------------------------------------------------
     document.getElementById("footer-year").textContent = new Date().getFullYear();
     document.getElementById("contact-email").href = `mailto:${CONFIG.email}`;
     document.getElementById("contact-github").href = `https://github.com/${CONFIG.githubUsername}`;
@@ -721,12 +596,6 @@
     document.getElementById("contact-linkedin").href = CONFIG.linkedinUrl;
     document.getElementById("github-profile-link").href = `https://github.com/${CONFIG.githubUsername}`;
 
-    // ---------------------------------------------------------
-    // PROJECTS: fetched from the GitHub REST API
-    // Docs: https://docs.github.com/en/rest/repos/repos
-    // Note: unauthenticated requests are rate-limited to 60/hr
-    // per IP by GitHub. That's plenty for normal visitor traffic.
-    // ---------------------------------------------------------
     async function loadProjects() {
       const grid = document.getElementById("project-grid");
       try {
@@ -736,10 +605,7 @@
         if (!res.ok) throw new Error(`GitHub API returned ${res.status}`);
         let repos = await res.json();
 
-        // Skip forks so only your own work shows up
         repos = repos.filter(repo => !repo.fork);
-
-        // Most recently updated first, capped to the configured amount
         repos = repos
           .sort((a, b) => new Date(b.updated_at) - new Date(a.updated_at))
           .slice(0, CONFIG.maxProjectsShown);
@@ -765,13 +631,7 @@
       }
     }
 
-    // ---------------------------------------------------------
-    // BLOG: post list + individual post rendering
-    // Uses the GitHub Contents API to list files, then fetches
-    // each file's raw markdown to read its frontmatter/title.
-    // Docs: https://docs.github.com/en/rest/repos/contents
-    // ---------------------------------------------------------
-    let cachedPosts = []; // holds { title, date, excerpt, body } per post
+    let cachedPosts = [];
 
     async function loadBlogPosts() {
       const listEl = document.getElementById("post-list");
@@ -787,7 +647,6 @@
           return;
         }
 
-        // Fetch and parse every markdown file in parallel
         const posts = await Promise.all(
           mdFiles.map(async file => {
             const rawRes = await fetch(file.download_url);
@@ -796,10 +655,9 @@
           })
         );
 
-        // Newest first
         cachedPosts = posts.sort((a, b) => new Date(b.date) - new Date(a.date));
-
         listEl.innerHTML = "";
+        
         cachedPosts.forEach((post, index) => {
           const row = document.createElement("button");
           row.className = "post-row";
@@ -818,11 +676,9 @@
       }
     }
 
-    // Splits a markdown file into frontmatter (title/date/excerpt) + body
     function parsePost(raw, filename) {
       const match = raw.match(/^---\s*\n([\s\S]*?)\n---\s*\n([\s\S]*)$/);
 
-      // Fallback if a file has no frontmatter block
       if (!match) {
         return {
           title: filename.replace(".md", ""),
@@ -868,25 +724,17 @@
       document.getElementById("post-list-container").style.display = "block";
     });
 
-    // ---------------------------------------------------------
-    // SMALL SHARED HELPERS
-    // ---------------------------------------------------------
     function formatDate(dateString) {
       const date = new Date(dateString);
       return date.toLocaleDateString("en-US", { year: "numeric", month: "short", day: "numeric" });
     }
 
-    // Prevents repo/post data from breaking the page if it contains
-    // HTML-like characters (basic XSS safety for API-sourced text)
     function escapeHtml(str) {
       const div = document.createElement("div");
       div.textContent = str;
       return div.innerHTML;
     }
 
-    // ---------------------------------------------------------
-    // INIT
-    // ---------------------------------------------------------
     loadProjects();
     loadBlogPosts();
   </script>
